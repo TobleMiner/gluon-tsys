@@ -1,5 +1,0 @@
-gluon-neighbour-info
-*.o
-*.so
-*.so.*
-.gdb_history
