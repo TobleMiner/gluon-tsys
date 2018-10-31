@@ -12,7 +12,6 @@ find_library(UBUS_LIBRARY NAMES ubus)
 
 find_library(UCI_LIBRARY NAMES uci)
 find_library(PLATFORMINFO_LIBRARY NAMES platforminfo)
-find_library(GLUONUTIL_LIBRARY NAMES gluonutil)
 
 add_executable(miau_proxy
 	proxy.c
@@ -28,7 +27,6 @@ target_link_libraries(miau_proxy
 	${UBOX_LIBRARY}
 	${UCLIENT_LIBRARY}
 	${UBUS_LIBRARY}
-	${GLUONUTIL_LIBRARY}
 )
 
 install(TARGETS miau_proxy RUNTIME DESTINATION sbin)

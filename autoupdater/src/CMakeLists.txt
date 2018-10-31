@@ -12,7 +12,6 @@ find_library(UBUS_LIBRARY NAMES ubus)
 
 find_library(UCI_LIBRARY NAMES uci)
 find_library(PLATFORMINFO_LIBRARY NAMES platforminfo)
-find_library(GLUONUTIL_LIBRARY NAMES gluonutil)
 find_library(MESHNEIGHBOUR_LIBRARY NAMES meshneighbour)
 
 find_path(RESPONDD_INCLUDE_DIR NAMES librespondd-0/librespondd.h)
@@ -44,7 +43,6 @@ target_link_libraries(autoupdater
     ${UBOX_LIBRARY}
     ${UCLIENT_LIBRARY}
     ${UBUS_LIBRARY}
-    ${GLUONUTIL_LIBRARY}
     ${MESHNEIGHBOUR_LIBRARY}
     ${RESPONDD_LIBRARY}
     ${JSONC_LIBRARY}
