@@ -5,7 +5,7 @@ PKG_VERSION:=1
 PKG_RELEASE:=1
 
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
-PKG_BUILD_DEPENDS := libgluonutil libubus librespondd
+PKG_BUILD_DEPENDS := libmeshutil libubus librespondd
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -13,7 +13,7 @@ define Package/libmeshneighbour
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=libmeshneighbour
-  DEPENDS:=+libgluonutil +libubus +libubox +libjson-c +librespondd
+  DEPENDS:=+libmeshutil +libubus +libubox +libjson-c +librespondd
 endef
 
 define Package/libmeshneighbour/description

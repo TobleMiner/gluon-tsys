@@ -37,7 +37,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-#include <libgluonutil.h>
+#include <libmeshutil.h>
 #include <libubox/list.h>
 #include <libubus.h>
 #include <json-c/json.h>

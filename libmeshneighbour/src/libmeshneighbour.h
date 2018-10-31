@@ -1,7 +1,7 @@
 #ifndef _LIBMESHNEIGHBOUR_H_
 #define _LIBMESHNEIGHBOUR_H_
 
-#include <libgluonutil.h>
+#include <libmeshutil.h>
 #include <librespondd.h>
 #include <libubox/list.h>
 
