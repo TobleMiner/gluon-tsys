@@ -1,6 +1,5 @@
 /*
   Copyright (c) 2018, Tobias Schramm <tobleminer@gmail.com>
-  Copyright (c) 2016, Matthias Schiffer <mschiffer@universe-factory.net>
   All rights reserved.
 
   Redistribution and use in source and binary forms, with or without
