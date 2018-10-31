@@ -515,14 +515,14 @@ struct proxy_cb_priv {
 static int proxy_manifest_url_cb(char *image_url, size_t url_len, const struct settings *s, void *priv) {
 	struct proxy_cb_priv *proxy_priv = priv;
 	return snprintf(image_url, url_len,
-		 "http://[%s%%%s]/cgi-bin/fwproxy?type=manifest&branch=%s&file=%s.manifest",
+		 "http://[%s%%%s]/cgi-bin/fwproxy?branch=%s&file=%s.manifest",
 		 proxy_priv->proxy_ll_addr, proxy_priv->proxy_iface, s->branch, s->branch);
 }
 
 static int proxy_image_url_cb(char *image_url, size_t url_len, const struct settings *s, const char *image, void *priv) {
 	struct proxy_cb_priv *proxy_priv = priv;
 	return snprintf(image_url, url_len,
-		 "http://[%s%%%s]/cgi-bin/fwproxy?type=image&branch=%s&file=%s",
+		 "http://[%s%%%s]/cgi-bin/fwproxy?branch=%s&file=%s",
 		 proxy_priv->proxy_ll_addr, proxy_priv->proxy_iface, s->branch, image);
 }
 
