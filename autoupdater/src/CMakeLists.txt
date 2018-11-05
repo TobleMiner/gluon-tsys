@@ -50,3 +50,6 @@ target_link_libraries(autoupdater
 )
 
 install(TARGETS autoupdater RUNTIME DESTINATION sbin)
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/module.h DESTINATION include)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/settings.h DESTINATION include)
