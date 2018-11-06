@@ -3,47 +3,51 @@
 #include <settings.h>
 #include <stddef.h>
 
-#define MAU_UPDATE_CTX_PRIV(ctx) \
+#define UEAI_MODULE_OPS_SYM "ueai_ops"
+
+#define UEAI_UPDATE_CTX_PRIV(ctx) \
 	((ctx)->priv)
 
-#define MAU_DOWNLOAD_CTX_PRIV(dlctx) \
+#define UEAI_DOWNLOAD_CTX_PRIV(dlctx) \
 	((dlctx)->ctx->priv)
 
-#define MAU_FIRMWARE_CTX_PRIV(fwctx) \
+#define UEAI_FIRMWARE_CTX_PRIV(fwctx) \
 	((fwctx)->dlctx->ctx->priv)
 
-struct mau_update_ctx {
+struct ueai_update_ctx {
 	void* priv;
 	struct settings* settings;
+	struct manifest manifest;
+
 };
 
-struct mau_download_ctx {
+struct ueai_download_ctx {
 	off_t offset;
 	char* buffer;
 
-	struct mau_update_ctx* ctx;
+	struct ueai_update_ctx* ctx;
 };
 
-struct mau_firmware_ctx {
+struct ueai_firmware_ctx {
 	char* fname;
-	struct mau_fownload_ctx dlctx;
+	struct ueai_fownload_ctx dlctx;
 };
 
-typedef int (*mau_ctx_init)(struct mau_update_ctx* ctx);
-typedef void (*mau_ctx_destroy)(struct mau_update_ctx* ctx);
+typedef int (*ueai_ctx_init)(struct ueai_update_ctx* ctx);
+typedef void (*ueai_ctx_destroy)(struct ueai_update_ctx* ctx);
 
-typedef int (*mau_data_download_cb)(struct mau_download_ctx* ctx, char* data, size_t data_len);
-typedef int (*mau_firmware_download_cb)(struct mau_firmware_ctx* ctx, char* data, size_t data_len);
+typedef int (*ueai_data_download_cb)(struct ueai_download_ctx* ctx, char* data, size_t data_len);
+typedef int (*ueai_firmware_download_cb)(struct ueai_firmware_ctx* ctx, char* data, size_t data_len);
 
-typedef int (*mau_module_download_manifest)(struct mau_download_ctx* ctx, mau_data_download_cb cb);
-typedef int (*mau_module_download_firmware)(struct mau_firmware_ctx* ctx, mau_firmware_download_cb cb);
+typedef int (*ueai_module_download_manifest)(struct ueai_download_ctx* ctx, ueai_data_download_cb cb);
+typedef int (*ueai_module_download_firmware)(struct ueai_firmware_ctx* ctx, ueai_firmware_download_cb cb);
 
-typedef char* (*mau_module_get_name)(void);
+typedef char* (*ueai_module_get_name)(void);
 
-struct mau_module_ops {
-	mau_ctx_init init,
-	mau_ctx_destroy destroy,
-	mau_module_download_manifest dl_manifest,
-	mau_module_download_firmware dl_firmware,
-	mau_module_get_name get_name,
+struct ueai_module_ops {
+	ueai_ctx_init init,
+	ueai_ctx_destroy destroy,
+	ueai_module_download_manifest dl_manifest,
+	ueai_module_download_firmware dl_firmware,
+	ueai_module_get_name get_name,
 };
