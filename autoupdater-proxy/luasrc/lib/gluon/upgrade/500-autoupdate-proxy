@@ -1,0 +1,12 @@
+#!/usr/bin/lua
+
+local uci = require('simple-uci').cursor()
+
+uci:section('firewall', 'rule', 'wan_autoupdate_proxy', {
+  src = 'wan',
+  src_ip = 'fe80::/64',
+  dest_port = '80',
+  proto = 'tcp',
+  target = 'ACCEPT',
+})
+uci:save('firewall')
