@@ -608,7 +608,7 @@ int main(int argc, char *argv[]) {
 
 		if(!newer_than(release_str, s.old_version)) {
 			fprintf(stderr, "autoupdater: notice: Frimware version '%s' not newer than '%s', skipping neighbour\n", release_str, s.old_version);
-			continue;			
+			continue;
 		}
 
 		char v6_addr_tmp[INET6_ADDRSTRLEN];
