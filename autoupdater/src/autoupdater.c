@@ -606,7 +606,7 @@ int main(int argc, char *argv[]) {
 			continue;
 		}
 
-		if(!newer_than(release_str, s.old_version)) {
+		if(!newer_than(release_str, s.old_version) && !s.force) {
 			fprintf(stderr, "autoupdater: notice: Frimware version '%s' not newer than '%s', skipping neighbour\n", release_str, s.old_version);
 			continue;
 		}

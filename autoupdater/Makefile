@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=autoupdater
-PKG_VERSION:=4
+PKG_VERSION:=5
 
 PKG_BUILD_DEPENDS := librespondd libmeshneighbour
 
